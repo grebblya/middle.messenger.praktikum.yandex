@@ -565,5 +565,14 @@ body {
     margin-right: 10px;
 }
 
-
+.link-tree-container {
+    position: fixed; /* Или position: absolute; */
+    top: 20px; /* Отступ сверху, настройте по необходимости */
+    left: 0;
+    width: 150px; /* Задайте нужную ширину для блока ссылок */
+    /* Дополнительные стили для наглядности (можно убрать) */
+    background-color: #f9f9f9;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+}
 
