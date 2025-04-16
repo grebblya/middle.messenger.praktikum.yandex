@@ -1,7 +1,9 @@
-// vite.config.js
 import { resolve } from 'path';
+import { defineConfig } from 'vite'; // <-- Добавьте импорт defineConfig
 import handlebars from 'vite-plugin-handlebars';
 
+// Ваши объекты данных (registrationPageData, loginPageData, и т.д.) остаются без изменений...
+// --- Начало ваших данных ---
 // Данные для страницы РЕГИСТРАЦИИ
 const registrationPageData = {
     title: 'Регистрация - Контекст',
@@ -60,47 +62,51 @@ const error404PageData = {
 };
 
 const settingsPageData = {
-    title: 'Регистрация - Контекст',
-    formTitle: 'информация о пользователе',
+    title: 'Настройки профиля - Контекст', // Исправил title для ясности
+    formTitle: 'Информация о пользователе',
     fields: {
         email: { label: 'Почта', name:"email", value: "mail@mail.com" },
         login: { label: 'Логин', name:"login",value: "ivanivanov" },
-        name: { label: 'имя', name:"first_name", value: "Иван"},
-        lastName: { label:'фамилия', name:"second_name", value: "Иванов"},
-        chatName: { label: 'имя в чате',name:"display_name", value: "Иван"},
-        phone: {label:"телефон",name:"phone",  value:"8 (900)-777-00-00"},
+        name: { label: 'Имя', name:"first_name", value: "Иван"}, // Поправил "имя"
+        lastName: { label:'Фамилия', name:"second_name", value: "Иванов"}, // Поправил "фамилия"
+        chatName: { label: 'Имя в чате',name:"display_name", value: "Иван"}, // Поправил "имя в чате"
+        phone: {label:"Телефон",name:"phone",  value:"8 (900)-777-00-00"}, // Поправил "телефон"
     },
     buttons: {
         userDataChange: { text: "Сохранить изменения", type: "button", class: "action-button edit-button" },
         exit: { text: "Выйти", type: "button", class: "action-button logout-button" }
     }
-
-
-
 };
 
 const changePasswordData = {
-    // title:  'Контекст',
-    // formTitle: 'информация о пользователе',
-    forms: {
-        oldPassword: { passwordType: "oldPassword", text: "Введите старый пароль", passwordToggleType: 'oldPasswordToggle', passwordError: 'oldPasswordError'},
-
+    title:  'Смена пароля - Контекст', // Добавил title
+    // formTitle: 'информация о пользователе', // Возможно, не нужен здесь
+    fields: { // Структурировал поля, чтобы было похоже на другие страницы
+        oldPassword: { label: "Старый пароль", type: "password", name: "oldPassword", placeholder: "********"},
+        newPassword: { label: "Новый пароль", type: "password", name: "newPassword", placeholder: "********"},
+        confirmPassword: { label: "Повторите новый пароль", type: "password", name: "confirmPassword", placeholder: "********"}
+    },
+    buttons: {
+        save: { text: "Сохранить", type: "submit", class: "btn-save" }
     }
-}
+    // Старая структура была не очень удобна для Handlebars, изменил на более стандартную
+    // forms: {
+    //     oldPassword: { passwordType: "oldPassword", text: "Введите старый пароль", passwordToggleType: 'oldPasswordToggle', passwordError: 'oldPasswordError'},
+    // }
+};
+// --- Конец ваших данных ---
 
-export default {
+
+// Экспортируем конфигурацию через defineConfig
+export default defineConfig({
     plugins: [
         handlebars({
             partialDirectory: resolve(__dirname, 'src/partials'),
-            // Определяем контекст в зависимости от страницы
             context(pagePath) {
-                // pagePath содержит путь к текущему обрабатываемому HTML файлу
+                console.log(`[Build Context] Processing: ${pagePath}`); // Логгирование для отладки сборки
                 if (pagePath.includes('login.html')) {
                     return loginPageData;
                 }
-                // if (pagePath.includes('set.html')) {
-                //     return settings;
-                // }
                 if (pagePath.includes('usersettings.html')) {
                     return settingsPageData;
                 }
@@ -111,31 +117,48 @@ export default {
                     return error500PageData;
                 }
                 if (pagePath.includes('error404.html')) {
-
                     return error404PageData;
                 }
-                // По умолчанию возвращаем данные для регистрации (index.html)
-                return registrationPageData;
+                // По умолчанию (для index.html и других неуказанных)
+                // Убедитесь, что index.html действительно должен использовать registrationPageData
+                if (pagePath.includes('index.html')) {
+                    return registrationPageData;
+                }
+                // Можно вернуть пустой объект или общие данные, если нет совпадения
+                return {}; // Или registrationPageData, если это правильное поведение по умолчанию
             }
         }),
+        // другие плагины...
     ],
+    // Указываем корень проекта, если ваши HTML файлы лежат в src
+    root: resolve(__dirname, 'src'), // <-- Важно, если HTML и main.js/css лежат в src
+
     build: {
-        outputDir: 'dist',
+        // Правильное имя опции: outDir
+        outDir: resolve(__dirname, 'dist'), // Указываем путь к dist относительно корня проекта (где vite.config.js)
+        emptyOutDir: true, // Очищать папку dist перед сборкой
         rollupOptions: {
             input: {
-                // Указываем обе страницы как точки входа
-                main: resolve(__dirname, 'src/index.html'),
+                // Ключи (main, login и т.д.) определяют имя выходного HTML файла в dist (main -> index.html)
+                main: resolve(__dirname, 'src/index.html'), // Обычно это главная страница
                 login: resolve(__dirname, 'src/login.html'),
-                error: resolve(__dirname, 'src/error404.html')
+                error404: resolve(__dirname, 'src/error404.html'), // Дал уникальный ключ
+                error500: resolve(__dirname, 'src/error500.html'), // <-- Добавлено
+                usersettings: resolve(__dirname, 'src/usersettings.html'), // <-- Добавлено
+
+                // Добавьте сюда все остальные ваши страницы по аналогии
             }
         }
     },
     resolve: {
         alias: {
+            // Алиас '@' теперь будет указывать на корень проекта, т.к. мы изменили root
+            // Если ваши JS/CSS импорты ожидают '@' как 'src', оставьте как было, НО убедитесь, что пути в rollupOptions и root согласованы
             '@': resolve(__dirname, 'src'),
         }
     },
     server: {
-        open: '/src/login.html' // Можно изменить на '/src/index.html' или оставить так
+        // Открывать при старте `vite dev`
+        open: '/index.html' // Путь относительно `root`
     }
-};
+});
