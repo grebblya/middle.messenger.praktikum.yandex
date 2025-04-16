@@ -143,7 +143,7 @@ export default defineConfig({
                 error404: resolve(__dirname, 'src/error404.html'), // Дал уникальный ключ
                 error500: resolve(__dirname, 'src/error500.html'), // <-- Добавлено
                 usersettings: resolve(__dirname, 'src/userSettings.html'), // <-- Добавлено
-
+                chat: resolve(__dirname, 'src/chat.html')
                 // Добавьте сюда все остальные ваши страницы по аналогии
             }
         }
