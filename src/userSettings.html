@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль пользователя</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="avatar-placeholder">
+            <input type="file" accept="image/*" id="avatar-placeholder" name ="avatar" >
+<!--            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"-->
+<!--                 stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user">-->
+<!--                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>-->
+<!--                <circle cx="12" cy="7" r="4"></circle>-->
+            </svg>
+            <img id="avatar-image" src="#" alt="Аватар" style="display: none;">
+
+        </div>
+        <h1 class="profile-name">Иван</h1>
+    </div>
+    <div class="profile-info">
+
+        <h2>Информация о пользователе</h2>
+
+        {{!-- Итерация по полям, определенным в context.fields --}}
+        {{#each fields}}
+        {{> _informRow label=this.label  value=this.value }}
+        {{/each}}
+
+<!--        <div class="info-row">-->
+<!--            <div class="info-label">{{label}}</div>-->
+<!--            <div class="info-value">{{value}}</div>-->
+<!--        </div>-->
+
+    </div>
+    <div class="actions-block">
+        {{> _button text=buttons.userDataChange.text type=buttons.userDataChange.type class=buttons.userDataChange.class }}
+        <div class="container" >
+            <button id="changePasswordBtn" class="action-button change-password-button">Сменить пароль</button>
+
+            <div id="changePasswordModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Сменить пароль</h2>
+                        <span class="close">&times;</span>
+                    </div>
+                    <form id="changePasswordForm">
+                        <div class="form-group">
+                            <label for="newPassword">Текущий пароль:</label>
+                            <input type="password" id="oldPassword" name="oldPassword" placeholder="Введите текущий пароль">
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">Новый пароль:</label>
+                            <input type="password" id="newPassword" name="newPassword" placeholder="Введите новый пароль">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Подтвердите пароль:</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Подтвердите новый пароль">
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="save-password-btn" id="savePasswordBtn">Сохранить</button>
+                            <button type="button" class="cancel-btn" id="cancelBtn">Отмена</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+        {{> _button text=buttons.exit.text type=buttons.exit.type class=buttons.exit.class }}
+    </div>
+
+    </div>
+
+</div>
+<script type="module" src="./main.js"></script>
+<script>
+    const modal = document.getElementById("changePasswordModal");
+    const btn = document.getElementById("changePasswordBtn");
+    const closeBtn = document.querySelector(".close");
+    const cancelBtn = document.getElementById("cancelBtn");
+    const savePasswordBtn = document.getElementById("savePasswordBtn");
+    const newPasswordInput = document.getElementById("newPassword");
+    const confirmPasswordInput = document.getElementById("confirmPassword");
+    const passwordMatchError = document.getElementById("passwordMatchError");
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    cancelBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    savePasswordBtn.onclick = function() {
+        const newPassword = newPasswordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
+
+        if (newPassword !== confirmPassword) {
+            passwordMatchError.style.display = "block";
+            return;
+        } else {
+            passwordMatchError.style.display = "none";
+            // Здесь можно добавить логику для сохранения нового пароля
+            alert("Пароль успешно изменен!"); // Простое уведомление
+            modal.style.display = "none"; // Закрываем модальное окно после успешной смены
+        }
+    }
+</script>
+</body>
+</html>

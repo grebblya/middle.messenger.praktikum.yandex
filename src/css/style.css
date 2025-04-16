@@ -1,0 +1,569 @@
+/* Базовые стили */
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4; /* Легкий фон для контраста */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Контейнер формы */
+.registration-container {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* Ограничение ширины */
+    width: 90%; /* Адаптивность */
+}
+
+/* Заголовок формы */
+.registration-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 600; /* Немного жирнее */
+}
+
+/* Группа полей (label + input) */
+.form-group {
+    margin-bottom: 20px; /* Увеличен отступ */
+}
+
+.form-group label {
+    display: block; /* Метка над полем */
+    margin-bottom: 8px; /* Отступ под меткой */
+    font-size: 0.9em;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%; /* Занимает всю ширину */
+    padding: 12px 15px; /* Комфортный размер */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Учитывает padding и border в ширине */
+    font-size: 1em;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #007bff; /* Подсветка при фокусе */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Контейнер для кнопок */
+.form-buttons {
+    margin-top: 30px; /* Отступ над кнопками */
+    display: flex;
+    flex-direction: column; /* Кнопки друг под другом */
+    gap: 15px; /* Расстояние между кнопками */
+}
+
+/* Общие стили для кнопок */
+.btn {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    width: 100%; /* Кнопки на всю ширину */
+}
+
+.btn:active {
+    transform: scale(0.98); /* Легкое нажатие */
+}
+
+/* Кнопка "Зарегистрироваться" */
+.btn-register {
+    background-color: #5cb85c; /* Зеленый */
+    color: white;
+}
+
+.btn-register:hover {
+    background-color: #4cae4c; /* Чуть темнее при наведении */
+}
+
+/* Кнопка "Войти" */
+.btn-login {
+    background-color: #337ab7; /* Синий */
+    color: white;
+}
+
+.btn-login:hover {
+    background-color: #286090; /* Чуть темнее при наведении */
+}
+
+/* ... (предыдущие стили для body, .registration-container, .registration-form, .form-group, .btn и т.д.) ... */
+
+/* Стили для ссылки под формой */
+.form-link {
+    text-align: center;
+    margin-top: 20px; /* Отступ от кнопки */
+    font-size: 0.9em;
+    color: #555; /* Цвет обычного текста */
+}
+
+.form-link a {
+    color: #337ab7; /* Синий цвет для ссылки */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-link a:hover {
+    text-decoration: underline;
+}
+
+/* --- Небольшие правки для соответствия дизайну входа --- */
+
+/* Если хотите использовать другие классы для входа, например: */
+/* .login-container { ... } */
+ .login-form {
+     text-align: center;
+}
+
+/* Поля ввода на странице входа не имеют видимого label над полем, */
+/* а используют placeholder. Скроем label, если он есть для этих полей, */
+/* но лучше управлять этим через контекст (не передавать label или оставить пустым) */
+/* Если label все же передается, можно скрыть его так: */
+.login-form .form-group label { /* Пример, если бы у формы был класс login-form */
+    /* display: none; */ /* Скрывает label */
+
+    /* Или позиционировать абсолютно для скринридеров, но визуально скрыть: */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Сделаем контейнер чуть менее высоким, т.к. полей меньше */
+/* Можно создать отдельный класс или добавить стиль специфично */
+.login-container  { /* Наследует стили .registration-container, если классы одинаковые */
+    max-width: 300px;
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Адаптивность */
+}
+
+/* ... (предыдущие стили) ... */
+
+/* Стили для страницы ошибки */
+html, body {
+    height: 100%; /* Необходимо для центрирования по вертикали */
+}
+
+/* Сбрасываем стили body, примененные для форм, если они мешают */
+body.error-page-body { /* Можно добавить класс к body в error.html или переопределить */
+    display: flex; /* Используем flex для центрирования контейнера */
+    justify-content: center;
+    align-items: center;
+    background-color: #fff; /* Чистый белый фон */
+    min-height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.error-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #333; /* Основной цвет текста */
+}
+
+.error-code {
+    font-size: 6rem; /* Крупный размер кода ошибки */
+    font-weight: bold;
+    margin-bottom: 10px; /* Уменьшен отступ */
+    color: #333; /* Цвет кода ошибки */
+}
+
+.error-message {
+    font-size: 1.5rem; /* Размер сообщения */
+    margin-bottom: 30px; /* Отступ до ссылки */
+    color: #555; /* Цвет сообщения */
+}
+
+.error-link {
+    font-size: 1rem;
+    color: #337ab7; /* Синий цвет ссылки */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.error-link:hover {
+    text-decoration: underline;
+}
+
+
+
+/* --- Примечание по body --- */
+/* Если вы хотите, чтобы стили body не конфликтовали со стилями */
+/* для страниц с формами (где body тоже используется для центрирования), */
+/* лучше добавить уникальный класс к body на странице ошибки: */
+/* В error.html: <body class="error-page-body"> */
+/* Тогда стили выше будут применяться только к ней. */
+/* Если не добавлять класс, убедитесь, что эти стили не ломают */
+/* отображение других страниц (например, фон #f4f4f4 для форм). */
+/* В данном примере предполагается, что стили body для ошибки */
+/* будут основными, если открыть error.html напрямую. */
+
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+.wip_container {
+    text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px; /* Добавим отступ сверху от текста */}
+
+
+
+/*setttings*/
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 100%;
+
+}
+
+.profile-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.avatar-placeholder {
+
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.avatar-icon {
+    position: static;
+    font-size: 2em;
+    color: #999;
+}
+
+.avatar-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-details {
+    margin-bottom: 20px;
+}
+
+.profile-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.profile-field label {
+    font-weight: bold;
+}
+
+.value-container {
+    display: flex;
+    align-items: center;
+}
+
+.value {
+    margin-right: 10px;
+}
+
+.edit-input {
+    margin-right: 10px;
+}
+
+.edit-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    color: #555;
+}
+
+.profile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.button.primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.button.secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-bottom: 1px solid #ccc;
+
+}
+
+.info-label {
+    font-weight: 500;
+    color: #757575;
+    width: 600px; /* Увеличена ширина меток */
+    text-align: left;
+}
+
+.info-value {
+    color: #212121;
+    text-align: right;
+    flex: 1;
+    border: none;
+}
+.profile-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    width: 100%;
+    max-width: 800px; /* Увеличена максимальная ширина */
+    box-sizing: border-box;
+}
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.avatar-placeholder {
+    width: 120px;
+    height: 120px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.avatar-placeholder svg {
+    width: 60px;
+    height: 60px;
+    color: #bdbdbd;
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: 600;
+    color: #212121;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.profile-info {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.action-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 12px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#avatar-placeholder {
+    /* Скрываем input, но делаем его доступным для кликов */
+    position: initial;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2; /* Убедитесь, что он выше аватара */
+}
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 20% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    animation: fadeIn 0.3s;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+
+
+.modal-footer {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.save-password-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+
+.cancel-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    margin-right: 10px;
+}
+
+
+
