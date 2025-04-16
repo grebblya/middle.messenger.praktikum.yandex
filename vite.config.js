@@ -94,7 +94,7 @@ const changePasswordData = {
     //     oldPassword: { passwordType: "oldPassword", text: "Введите старый пароль", passwordToggleType: 'oldPasswordToggle', passwordError: 'oldPasswordError'},
     // }
 };
-// --- Конец ваших данных ---
+// --- Конец ваших данных - --
 
 
 // Экспортируем конфигурацию через defineConfig
