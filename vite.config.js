@@ -63,12 +63,12 @@ const settingsPageData = {
     title: 'Регистрация - Контекст',
     formTitle: 'информация о пользователе',
     fields: {
-        email: { label: 'Почта', name:"", value: "mail@mail.com" },
-        login: { label: 'Логин', name:"",value: "ivanivanov" },
-        name: { label: 'имя', name:"", value: "Иван"},
-        lastName: { label:'фамилия', name:"", value: "Иванов"},
-        chatName: { label: 'имя в чате',name:"", value: "Иван"},
-        phone: {label:"телефон",name:"",  value:"8 (900)-777-00-00"},
+        email: { label: 'Почта', name:"email", value: "mail@mail.com" },
+        login: { label: 'Логин', name:"login",value: "ivanivanov" },
+        name: { label: 'имя', name:"first_name", value: "Иван"},
+        lastName: { label:'фамилия', name:"second_name", value: "Иванов"},
+        chatName: { label: 'имя в чате',name:"display_name", value: "Иван"},
+        phone: {label:"телефон",name:"phone",  value:"8 (900)-777-00-00"},
     },
     buttons: {
         userDataChange: { text: "Сохранить изменения", type: "button", class: "action-button edit-button" },
@@ -108,19 +108,10 @@ export default {
                     return changePasswordData;
                 }
                 if (pagePath.includes('error500.html')) {
-                    // Здесь можно добавить логику для выбора данных ошибки
-                    // Например, если бы у вас были error-404.html и error-500.html
-                    // if (pagePath.includes('error-404.html')) return error404PageData;
-                    // if (pagePath.includes('error-500.html')) return errorPageData;
-                    // Пока просто возвращаем данные для 500 ошибки
                     return error500PageData;
                 }
                 if (pagePath.includes('error404.html')) {
-                    // Здесь можно добавить логику для выбора данных ошибки
-                    // Например, если бы у вас были error-404.html и error-500.html
-                    // if (pagePath.includes('error-404.html')) return error404PageData;
-                    // if (pagePath.includes('error-500.html')) return errorPageData;
-                    // Пока просто возвращаем данные для 500 ошибки
+
                     return error404PageData;
                 }
                 // По умолчанию возвращаем данные для регистрации (index.html)
@@ -129,12 +120,13 @@ export default {
         }),
     ],
     build: {
+        outputDir: 'dist',
         rollupOptions: {
             input: {
                 // Указываем обе страницы как точки входа
                 main: resolve(__dirname, 'src/index.html'),
                 login: resolve(__dirname, 'src/login.html'),
-                error: resolve(__dirname, 'src/error.html')
+                error: resolve(__dirname, 'src/error404.html')
             }
         }
     },

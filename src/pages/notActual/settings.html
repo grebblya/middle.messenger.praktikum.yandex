@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="profile-container">
+    <div class="profile-header">
+        <div class="profile-avatar">
+            {{#if context.avatar}}
+            <img src="{{context.avatar}}" alt="Аватар">
+            {{else}}
+            <div class="avatar-placeholder"></div>
+            {{/if}}
+        </div>
+        <h1 class="profile-name">{{context.name}}</h1>
+    </div>
+
+    <div class="profile-details">
+        <div class="profile-item">
+            <label for="email">Почта</label>
+            <div class="input-wrapper">
+                <input type="text" id="email" value="{{context.email}}" readonly>
+                <button class="edit-button" data-field="email"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg></button>
+            </div>
+        </div>
+        <div class="profile-item">
+            <label for="login">Логин</label>
+            <div class="input-wrapper">
+                <input type="text" id="login" value="{{context.login}}" readonly>
+                <button class="edit-button" data-field="login"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg></button>
+            </div>
+        </div>
+        <div class="profile-item">
+            <label for="firstName">Имя</label>
+            <div class="input-wrapper">
+                <input type="text" id="firstName" value="{{context.firstName}}" readonly>
+                <button class="edit-button" data-field="firstName"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg></button>
+            </div>
+        </div>
+        <div class="profile-item">
+            <label for="lastName">Фамилия</label>
+            <div class="input-wrapper">
+                <input type="text" id="lastName" value="{{context.lastName}}" readonly>
+                <button class="edit-button" data-field="lastName"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg></button>
+            </div>
+        </div>
+        <div class="profile-item">
+            <label for="chatName">Имя в чате</label>
+            <div class="input-wrapper">
+                <input type="text" id="chatName" value="{{context.chatName}}" readonly>
+                <button class="edit-button" data-field="chatName"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg></button>
+            </div>
+        </div>
+        <div class="profile-item">
+            <label for="phone">Телефон</label>
+            <div class="input-wrapper">
+                <input type="text" id="phone" value="{{context.phone}}" readonly>
+                <button class="edit-button" data-field="phone"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg></button>
+            </div>
+        </div>
+    </div>
+
+<!--    <div class="profile-actions">-->
+<!--        <button class="action-button">Изменить данные</button>-->
+<!--        <button class="action-button">Изменить пароль</button>-->
+<!--        <button class="logout-button">Выйти</button>-->
+<!--    </div>-->
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const editButtons = document.querySelectorAll('.edit-button');
+        editButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const field = button.dataset.field;
+                const inputField = document.getElementById(field);
+                inputField.readOnly = !inputField.readOnly;
+                inputField.focus(); // Optional: focus on the input when editing starts
+            });
+        });
+    });
+</script>
+</body>
+</html>
