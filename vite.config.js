@@ -99,6 +99,7 @@ const changePasswordData = {
 
 // Экспортируем конфигурацию через defineConfig
 export default defineConfig({
+    base: '',
     plugins: [
         handlebars({
             partialDirectory: resolve(__dirname, 'src/partials'),
@@ -107,11 +108,8 @@ export default defineConfig({
                 if (pagePath.includes('login.html')) {
                     return loginPageData;
                 }
-                if (pagePath.includes('usersettings.html')) {
+                if (pagePath.includes('userSettings.html')) {
                     return settingsPageData;
-                }
-                if (pagePath.includes('changePassword2.html')) {
-                    return changePasswordData;
                 }
                 if (pagePath.includes('error500.html')) {
                     return error500PageData;
@@ -144,7 +142,7 @@ export default defineConfig({
                 login: resolve(__dirname, 'src/login.html'),
                 error404: resolve(__dirname, 'src/error404.html'), // Дал уникальный ключ
                 error500: resolve(__dirname, 'src/error500.html'), // <-- Добавлено
-                usersettings: resolve(__dirname, 'src/usersettings.html'), // <-- Добавлено
+                usersettings: resolve(__dirname, 'src/userSettings.html'), // <-- Добавлено
 
                 // Добавьте сюда все остальные ваши страницы по аналогии
             }
@@ -159,6 +157,6 @@ export default defineConfig({
     },
     server: {
         // Открывать при старте `vite dev`
-        open: '/index.html' // Путь относительно `root`
+        open: 'dist/index.html' // Путь относительно `root`
     }
 });
