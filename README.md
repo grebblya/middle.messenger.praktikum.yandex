@@ -13,3 +13,6 @@
 
 <p>npm run build - сборка проекта</p>
 <p>npm run start - сборка и запуск проекта</p>
+
+ссылка на дизайн:
+https://www.figma.com/design/tO4wzaVNwT78bvrZWhGlwL/Messenger?node-id=11-109&t=On2J9sOl7cWaEfgT-0
