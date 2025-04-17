@@ -18,7 +18,7 @@
         <li><a href="/" >Регистрация</a></li>
     </ul>
 </div>
-{{!-- Вставляем партиал для контента ошибки, передавая данные из контекста --}}
+
 {{> _errorContent
 errorCode=errorCode
 errorMessage=errorMessage
@@ -26,7 +26,7 @@ linkText=linkText
 linkHref=linkHref
 }}
 
-{{!-- JS файл здесь может быть не нужен, но если есть общая логика, оставляем --}}
+
 <script type="module" src="./main.js"></script>
 </body>
 </html>

@@ -23,13 +23,11 @@
     <form class="registration-form">
         <h2>Регистрация</h2>
 
-        {{!-- Итерация по полям, определенным в context.fields --}}
         {{#each fields}}
         {{> _inputField label=this.label type=this.type name=this.name placeholder=this.placeholder value=this.value }}
         {{/each}}
 
         <div class="form-buttons">
-            {{!-- Используем данные кнопок из context.buttons --}}
             {{> _button text=buttons.register.text type=buttons.register.type class=buttons.register.class }}
             {{> _button text=buttons.login.text type=buttons.login.type class=buttons.login.class }}
         </div>

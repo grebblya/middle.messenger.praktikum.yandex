@@ -1,13 +1,4 @@
-/* Базовые стили */
-/*body {*/
-/*    font-family: sans-serif;*/
-/*    background-color: #f4f4f4; !* Легкий фон для контраста *!*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    min-height: 100vh;*/
-/*    margin: 0;*/
-/*}*/
+
 body {
     font-family: sans-serif;
     display: flex;
@@ -17,7 +8,6 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Контейнер формы */
 .registration-container {
     background-color: #fff;
     padding: 30px 40px;
@@ -27,7 +17,6 @@ body {
     width: 90%; /* Адаптивность */
 }
 
-/* Заголовок формы */
 .registration-form h2 {
     text-align: center;
     margin-bottom: 30px;
@@ -35,42 +24,42 @@ body {
     font-weight: 600; /* Немного жирнее */
 }
 
-/* Группа полей (label + input) */
+
 .form-group {
-    margin-bottom: 20px; /* Увеличен отступ */
+    margin-bottom: 20px;
 }
 
 .form-group label {
-    display: block; /* Метка над полем */
-    margin-bottom: 8px; /* Отступ под меткой */
+    display: block;
+    margin-bottom: 8px;
     font-size: 0.9em;
     color: #555;
 }
 
 .form-group input {
-    width: 100%; /* Занимает всю ширину */
-    padding: 12px 15px; /* Комфортный размер */
+    width: 100%;
+    padding: 12px 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /* Учитывает padding и border в ширине */
+    box-sizing: border-box;
     font-size: 1em;
 }
 
 .form-group input:focus {
     outline: none;
-    border-color: #007bff; /* Подсветка при фокусе */
+    border-color: #007bff;
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
-/* Контейнер для кнопок */
+
 .form-buttons {
-    margin-top: 30px; /* Отступ над кнопками */
+    margin-top: 30px;
     display: flex;
-    flex-direction: column; /* Кнопки друг под другом */
-    gap: 15px; /* Расстояние между кнопками */
+    flex-direction: column;
+    gap: 15px;
 }
 
-/* Общие стили для кнопок */
+
 .btn {
     padding: 12px 15px;
     border: none;
@@ -79,45 +68,42 @@ body {
     font-size: 1em;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.1s ease;
-    width: 100%; /* Кнопки на всю ширину */
+    width: 100%;
 }
 
 .btn:active {
-    transform: scale(0.98); /* Легкое нажатие */
+    transform: scale(0.98);
 }
 
-/* Кнопка "Зарегистрироваться" */
+
 .btn-register {
-    background-color: #5cb85c; /* Зеленый */
+    background-color: #5cb85c;
     color: white;
 }
 
 .btn-register:hover {
-    background-color: #4cae4c; /* Чуть темнее при наведении */
+    background-color: #4cae4c;
 }
 
-/* Кнопка "Войти" */
+
 .btn-login {
-    background-color: #337ab7; /* Синий */
+    background-color: #337ab7;
     color: white;
 }
 
 .btn-login:hover {
-    background-color: #286090; /* Чуть темнее при наведении */
+    background-color: #286090;
 }
 
-/* ... (предыдущие стили для body, .registration-container, .registration-form, .form-group, .btn и т.д.) ... */
-
-/* Стили для ссылки под формой */
 .form-link {
     text-align: center;
-    margin-top: 20px; /* Отступ от кнопки */
+    margin-top: 20px;
     font-size: 0.9em;
-    color: #555; /* Цвет обычного текста */
+    color: #555;
 }
 
 .form-link a {
-    color: #337ab7; /* Синий цвет для ссылки */
+    color: #337ab7;
     text-decoration: none;
     font-weight: 600;
 }
@@ -126,22 +112,11 @@ body {
     text-decoration: underline;
 }
 
-/* --- Небольшие правки для соответствия дизайну входа --- */
-
-/* Если хотите использовать другие классы для входа, например: */
-/* .login-container { ... } */
  .login-form {
      text-align: center;
 }
 
-/* Поля ввода на странице входа не имеют видимого label над полем, */
-/* а используют placeholder. Скроем label, если он есть для этих полей, */
-/* но лучше управлять этим через контекст (не передавать label или оставить пустым) */
-/* Если label все же передается, можно скрыть его так: */
-.login-form .form-group label { /* Пример, если бы у формы был класс login-form */
-    /* display: none; */ /* Скрывает label */
-
-    /* Или позиционировать абсолютно для скринридеров, но визуально скрыть: */
+.login-form .form-group label {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -153,34 +128,14 @@ body {
     border: 0;
 }
 
-/* Сделаем контейнер чуть менее высоким, т.к. полей меньше */
-/* Можно создать отдельный класс или добавить стиль специфично */
-.login-container  { /* Наследует стили .registration-container, если классы одинаковые */
+.login-container  {
     max-width: 300px;
     background-color: #fff;
     padding: 30px 40px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 90%; /* Адаптивность */
+    width: 90%;
 }
-
-/* ... (предыдущие стили) ... */
-
-/* Стили для страницы ошибки */
-/*html, body {*/
-/*    height: 100%; !* Необходимо для центрирования по вертикали *!*/
-/*}*/
-
-/* Сбрасываем стили body, примененные для форм, если они мешают */
-/*body.error-page-body { !* Можно добавить класс к body в error.html или переопределить *!*/
-/*    display: flex; !* Используем flex для центрирования контейнера *!*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    background-color: #fff; !* Чистый белый фон *!*/
-/*    min-height: 100vh;*/
-/*    margin: 0;*/
-/*    font-family: sans-serif;*/
-/*}*/
 
 .error-container {
     text-align: center;
@@ -188,25 +143,25 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #333; /* Основной цвет текста */
+    color: #333;
 }
 
 .error-code {
-    font-size: 6rem; /* Крупный размер кода ошибки */
+    font-size: 6rem;
     font-weight: bold;
-    margin-bottom: 10px; /* Уменьшен отступ */
-    color: #333; /* Цвет кода ошибки */
+    margin-bottom: 10px;
+    color: #333;
 }
 
 .error-message {
-    font-size: 1.5rem; /* Размер сообщения */
-    margin-bottom: 30px; /* Отступ до ссылки */
-    color: #555; /* Цвет сообщения */
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #555;
 }
 
 .error-link {
     font-size: 1rem;
-    color: #337ab7; /* Синий цвет ссылки */
+    color: #337ab7;
     text-decoration: none;
     font-weight: 500;
 }
@@ -215,29 +170,6 @@ body {
     text-decoration: underline;
 }
 
-
-
-/* --- Примечание по body --- */
-/* Если вы хотите, чтобы стили body не конфликтовали со стилями */
-/* для страниц с формами (где body тоже используется для центрирования), */
-/* лучше добавить уникальный класс к body на странице ошибки: */
-/* В error.html: <body class="error-page-body"> */
-/* Тогда стили выше будут применяться только к ней. */
-/* Если не добавлять класс, убедитесь, что эти стили не ломают */
-/* отображение других страниц (например, фон #f4f4f4 для форм). */
-/* В данном примере предполагается, что стили body для ошибки */
-/* будут основными, если открыть error.html напрямую. */
-
-
-/*body {*/
-/*    font-family: sans-serif;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    height: 100vh;*/
-/*    margin: 0;*/
-/*    background-color: #f4f4f4;*/
-/*}*/
 .wip_container {
     text-align: center;
     background-color: #fff;
@@ -245,122 +177,11 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-/*h1 {*/
-/*    color: #333;*/
-/*    margin-bottom: 20px;*/
-/*}*/
+
 img {
     max-width: 100%;
     height: auto;
     margin-top: 20px; /* Добавим отступ сверху от текста */}
-
-
-
-/*setttings*/
-
-/*.container {*/
-/*    width: 100%;*/
-/*}*/
-
-/*.profile-card {*/
-/*    background-color: #fff;*/
-/*    border-radius: 8px;*/
-/*    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
-/*    padding: 20px;*/
-/*}*/
-
-/*.profile-header {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    margin-bottom: 20px;*/
-/*}*/
-
-/*.avatar-placeholder {*/
-
-/*    width: 80px;*/
-/*    height: 80px;*/
-/*    border-radius: 50%;*/
-/*    background-color: #ddd;*/
-/*    margin-bottom: 10px;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    overflow: hidden;*/
-/*}*/
-
-/*.avatar-icon {*/
-/*    position: static;*/
-/*    font-size: 2em;*/
-/*    color: #999;*/
-/*}*/
-
-/*.avatar-placeholder img {*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    object-fit: cover;*/
-/*}*/
-
-/*.profile-details {*/
-/*    margin-bottom: 20px;*/
-/*}*/
-
-/*.profile-field {*/
-/*    display: flex;*/
-/*    justify-content: space-between;*/
-/*    align-items: center;*/
-/*    margin-bottom: 10px;*/
-/*}*/
-
-/*.profile-field label {*/
-/*    font-weight: bold;*/
-/*}*/
-
-/*.value-container {*/
-/*    display: flex;*/
-/*    align-items: center;*/
-/*}*/
-
-/*.value {*/
-/*    margin-right: 10px;*/
-/*}*/
-
-/*.edit-input {*/
-/*    margin-right: 10px;*/
-/*}*/
-
-/*.edit-button {*/
-/*    background: none;*/
-/*    border: none;*/
-/*    cursor: pointer;*/
-/*    font-size: 1em;*/
-/*    color: #555;*/
-/*}*/
-
-/*.profile-actions {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    gap: 10px;*/
-/*}*/
-
-/*.button {*/
-/*    padding: 10px 15px;*/
-/*    border: none;*/
-/*    border-radius: 5px;*/
-/*    cursor: pointer;*/
-/*    font-size: 1em;*/
-/*}*/
-
-/*.button.primary {*/
-/*    background-color: #007bff;*/
-/*    color: white;*/
-/*}*/
-
-/*.button.secondary {*/
-/*    background-color: #6c757d;*/
-/*    color: white;*/
-/*}*/
-
 
 .info-row {
     display: flex;
@@ -414,13 +235,13 @@ img {
 
 }
 #avatar-placeholder {
-    /* Скрываем input, но делаем его доступным для кликов */
+
     position: initial;
     width: 100%;
     height: 100%;
     opacity: 0;
     cursor: pointer;
-    z-index: 2; /* Убедитесь, что он выше аватара */
+    z-index: 2;
 }
 
 
@@ -519,18 +340,6 @@ img {
     font-family: 'Inter', sans-serif;
 }
 
-/*.form-group input {*/
-/*    width: 100%;*/
-/*    padding: 8px 10px;*/
-/*    border: 1px solid #ddd;*/
-/*    border-radius: 5px;*/
-/*    box-sizing: border-box;*/
-/*    font-size: 14px;*/
-/*    font-family: 'Inter', sans-serif;*/
-/*}*/
-
-
-
 .modal-footer {
     text-align: right;
     margin-top: 20px;
@@ -563,11 +372,10 @@ img {
 }
 
 .link-tree-container {
-    position: fixed; /* Или position: absolute; */
-    top: 20px; /* Отступ сверху, настройте по необходимости */
+    position: fixed;
+    top: 20px;
     left: 0;
-    width: 150px; /* Задайте нужную ширину для блока ссылок */
-    /* Дополнительные стили для наглядности (можно убрать) */
+    width: 150px;
     background-color: #f9f9f9;
     border-right: 1px solid #ccc;
     padding: 10px;
