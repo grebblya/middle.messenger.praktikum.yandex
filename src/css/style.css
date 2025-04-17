@@ -1,12 +1,20 @@
 /* Базовые стили */
+/*body {*/
+/*    font-family: sans-serif;*/
+/*    background-color: #f4f4f4; !* Легкий фон для контраста *!*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    min-height: 100vh;*/
+/*    margin: 0;*/
+/*}*/
 body {
     font-family: sans-serif;
-    background-color: #f4f4f4; /* Легкий фон для контраста */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
+    background-color: #f4f4f4;
 }
 
 /* Контейнер формы */
@@ -159,20 +167,20 @@ body {
 /* ... (предыдущие стили) ... */
 
 /* Стили для страницы ошибки */
-html, body {
-    height: 100%; /* Необходимо для центрирования по вертикали */
-}
+/*html, body {*/
+/*    height: 100%; !* Необходимо для центрирования по вертикали *!*/
+/*}*/
 
 /* Сбрасываем стили body, примененные для форм, если они мешают */
-body.error-page-body { /* Можно добавить класс к body в error.html или переопределить */
-    display: flex; /* Используем flex для центрирования контейнера */
-    justify-content: center;
-    align-items: center;
-    background-color: #fff; /* Чистый белый фон */
-    min-height: 100vh;
-    margin: 0;
-    font-family: sans-serif;
-}
+/*body.error-page-body { !* Можно добавить класс к body в error.html или переопределить *!*/
+/*    display: flex; !* Используем flex для центрирования контейнера *!*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    background-color: #fff; !* Чистый белый фон *!*/
+/*    min-height: 100vh;*/
+/*    margin: 0;*/
+/*    font-family: sans-serif;*/
+/*}*/
 
 .error-container {
     text-align: center;
@@ -221,15 +229,15 @@ body.error-page-body { /* Можно добавить класс к body в erro
 /* будут основными, если открыть error.html напрямую. */
 
 
-body {
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f4f4f4;
-}
+/*body {*/
+/*    font-family: sans-serif;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    height: 100vh;*/
+/*    margin: 0;*/
+/*    background-color: #f4f4f4;*/
+/*}*/
 .wip_container {
     text-align: center;
     background-color: #fff;
@@ -237,10 +245,10 @@ body {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-h1 {
-    color: #333;
-    margin-bottom: 20px;
-}
+/*h1 {*/
+/*    color: #333;*/
+/*    margin-bottom: 20px;*/
+/*}*/
 img {
     max-width: 100%;
     height: auto;
@@ -249,118 +257,109 @@ img {
 
 
 /*setttings*/
-body {
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
-}
 
-.container {
-    width: 100%;
+/*.container {*/
+/*    width: 100%;*/
+/*}*/
 
-}
+/*.profile-card {*/
+/*    background-color: #fff;*/
+/*    border-radius: 8px;*/
+/*    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+/*    padding: 20px;*/
+/*}*/
 
-.profile-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
+/*.profile-header {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    margin-bottom: 20px;*/
+/*}*/
 
-.profile-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
+/*.avatar-placeholder {*/
 
-.avatar-placeholder {
+/*    width: 80px;*/
+/*    height: 80px;*/
+/*    border-radius: 50%;*/
+/*    background-color: #ddd;*/
+/*    margin-bottom: 10px;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    overflow: hidden;*/
+/*}*/
 
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: #ddd;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
+/*.avatar-icon {*/
+/*    position: static;*/
+/*    font-size: 2em;*/
+/*    color: #999;*/
+/*}*/
 
-.avatar-icon {
-    position: static;
-    font-size: 2em;
-    color: #999;
-}
+/*.avatar-placeholder img {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    object-fit: cover;*/
+/*}*/
 
-.avatar-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+/*.profile-details {*/
+/*    margin-bottom: 20px;*/
+/*}*/
 
-.profile-details {
-    margin-bottom: 20px;
-}
+/*.profile-field {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    margin-bottom: 10px;*/
+/*}*/
 
-.profile-field {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
+/*.profile-field label {*/
+/*    font-weight: bold;*/
+/*}*/
 
-.profile-field label {
-    font-weight: bold;
-}
+/*.value-container {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
 
-.value-container {
-    display: flex;
-    align-items: center;
-}
+/*.value {*/
+/*    margin-right: 10px;*/
+/*}*/
 
-.value {
-    margin-right: 10px;
-}
+/*.edit-input {*/
+/*    margin-right: 10px;*/
+/*}*/
 
-.edit-input {
-    margin-right: 10px;
-}
+/*.edit-button {*/
+/*    background: none;*/
+/*    border: none;*/
+/*    cursor: pointer;*/
+/*    font-size: 1em;*/
+/*    color: #555;*/
+/*}*/
 
-.edit-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
-    color: #555;
-}
+/*.profile-actions {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    gap: 10px;*/
+/*}*/
 
-.profile-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+/*.button {*/
+/*    padding: 10px 15px;*/
+/*    border: none;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*    font-size: 1em;*/
+/*}*/
 
-.button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-}
+/*.button.primary {*/
+/*    background-color: #007bff;*/
+/*    color: white;*/
+/*}*/
 
-.button.primary {
-    background-color: #007bff;
-    color: white;
-}
-
-.button.secondary {
-    background-color: #6c757d;
-    color: white;
-}
+/*.button.secondary {*/
+/*    background-color: #6c757d;*/
+/*    color: white;*/
+/*}*/
 
 
 .info-row {
@@ -412,7 +411,18 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+
 }
+#avatar-placeholder {
+    /* Скрываем input, но делаем его доступным для кликов */
+    position: initial;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2; /* Убедитесь, что он выше аватара */
+}
+
 
 .avatar-placeholder svg {
     width: 60px;
@@ -447,18 +457,6 @@ body {
     text-align: center;
     box-sizing: border-box;
 }
-
-#avatar-placeholder {
-    /* Скрываем input, но делаем его доступным для кликов */
-    position: initial;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-    z-index: 2; /* Убедитесь, что он выше аватара */
-}
-
-
 
 .modal {
     display: none;
@@ -508,7 +506,6 @@ body {
 }
 
 
-
 .form-group {
     margin-bottom: 15px;
 }
@@ -522,15 +519,15 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 8px 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 14px;
-    font-family: 'Inter', sans-serif;
-}
+/*.form-group input {*/
+/*    width: 100%;*/
+/*    padding: 8px 10px;*/
+/*    border: 1px solid #ddd;*/
+/*    border-radius: 5px;*/
+/*    box-sizing: border-box;*/
+/*    font-size: 14px;*/
+/*    font-family: 'Inter', sans-serif;*/
+/*}*/
 
 
 
@@ -543,7 +540,7 @@ body {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #4CAF50;
+    background-color: #afaeae;
     color: white;
     border: none;
     border-radius: 5px;
@@ -556,7 +553,7 @@ body {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #f44336;
+    background-color: buttonface;
     color: white;
     border: none;
     border-radius: 5px;

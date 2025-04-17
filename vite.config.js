@@ -73,7 +73,7 @@ const settingsPageData = {
         phone: {label:"Телефон",name:"phone",  value:"8 (900)-777-00-00"}, // Поправил "телефон"
     },
     buttons: {
-        userDataChange: { text: "Сохранить изменения", type: "button", class: "action-button edit-button" },
+        userDataChange: { text: "Сохранить изменения", type: "button", class: "action-button" },
         exit: { text: "Выйти", type: "button", class: "action-button logout-button" }
     }
 };
