@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!-- Используем title из контекста --}}
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<main>
+<nav class="link-tree-container">
+     <h1>Дерево ссылок</h1>
+    <ul>
+        <li><a href="/error404.html" >Страница ошибки 404</a></li>
+        <li><a href="/error500.html" >Страница ошибки 500</a></li>
+        <li><a href="/userSettings.html" >Настройки пользователя</a></li>
+        <li><a href="/login.html" >Страница входа</a></li>
+        <li><a href="/chat.html" >Чат </a></li>
+        <li><a href="/" >Регистрация</a></li>
+    </ul>
+</nav>
+<div class="registration-container">
+    <form class="registration-form">
+        <h2>Регистрация</h2>
+
+        {{#each fields}}
+        {{> _inputField label=this.label type=this.type name=this.name placeholder=this.placeholder value=this.value }}
+        {{/each}}
+
+        <div class="form-buttons">
+            {{> _button text=buttons.register.text type=buttons.register.type class=buttons.register.class }}
+            {{> _button text=buttons.login.text type=buttons.login.type class=buttons.login.class }}
+        </div>
+    </form>
+</div>
+</main>
+<script type="module" src="./main.js"></script>
+</body>
+</html>
